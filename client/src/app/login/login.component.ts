@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
   }
@@ -21,5 +21,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log('Login', this.loginForm.valid);
+    this.loginInvalid = true;
   }
 }
